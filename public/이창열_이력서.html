@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이창열 — Frontend Developer 이력서</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <style>
+      /* ── 기본 ── */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { font-size: 14px; }
+      body {
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #1e1e2e;
+        background: #f5f5f5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── 페이지 래퍼 ── */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 24px auto;
+        background: #fff;
+        padding: 14mm 16mm 14mm 16mm;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      }
+
+      /* ── 헤더 ── */
+      .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #6366f1; gap: 16px; }
+      .header-identity { display: flex; align-items: center; gap: 14px; }
+      .header-photo { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; border: 2px solid #6366f1; flex-shrink: 0; }
+      .header-left h1 { font-size: 2rem; font-weight: 800; color: #1e1e2e; letter-spacing: -0.02em; }
+      .header-left .sub { font-size: 0.95rem; color: #6366f1; font-weight: 600; margin-top: 4px; }
+      .header-right { text-align: right; font-size: 0.78rem; color: #555; line-height: 1.9; }
+      .header-right a { color: #6366f1; text-decoration: none; }
+      .header-right a:hover { text-decoration: underline; }
+
+      /* ── 섹션 ── */
+      section { margin-bottom: 18px; }
+      .section-title {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #6366f1;
+        border-bottom: 1px solid #e0e7ff;
+        padding-bottom: 5px;
+        margin-bottom: 12px;
+      }
+
+      /* ── 경력 ── */
+      .exp-item { margin-bottom: 14px; }
+      .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .exp-company { font-size: 0.9rem; font-weight: 700; color: #1e1e2e; }
+      .exp-period { font-size: 0.72rem; color: #888; }
+      .exp-meta { font-size: 0.75rem; color: #6366f1; font-weight: 600; margin-top: 2px; }
+      .exp-badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        background: #eef2ff;
+        color: #6366f1;
+        border-radius: 4px;
+        padding: 1px 6px;
+        margin-left: 6px;
+        vertical-align: middle;
+      }
+      .exp-tasks { margin-top: 6px; padding-left: 0; list-style: none; }
+      .exp-tasks li { font-size: 0.78rem; color: #444; line-height: 1.6; padding-left: 12px; position: relative; }
+      .exp-tasks li::before { content: '·'; position: absolute; left: 0; color: #6366f1; font-weight: 700; }
+
+      /* ── 학력 ── */
+      .edu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+      .edu-school { font-size: 0.85rem; font-weight: 700; }
+      .edu-major { font-size: 0.75rem; color: #666; margin-top: 1px; }
+      .edu-period { font-size: 0.72rem; color: #888; }
+      .edu-badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        background: #ecfdf5;
+        color: #059669;
+        border-radius: 4px;
+        padding: 1px 6px;
+        margin-left: 6px;
+      }
+
+      /* ── 기술 ── */
+      .skill-row { display: flex; gap: 8px; align-items: baseline; margin-bottom: 6px; }
+      .skill-label { font-size: 0.72rem; font-weight: 700; color: #6366f1; width: 140px; flex-shrink: 0; }
+      .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+      .tag {
+        font-size: 0.7rem;
+        font-weight: 500;
+        background: #f3f4f6;
+        color: #374151;
+        border-radius: 4px;
+        padding: 2px 7px;
+      }
+
+      /* ── 프로젝트 ── */
+      .proj-item { margin-bottom: 13px; }
+      .proj-header { display: flex; justify-content: space-between; align-items: baseline; }
+      .proj-name { font-size: 0.88rem; font-weight: 700; color: #1e1e2e; }
+      .proj-period { font-size: 0.72rem; color: #888; }
+      .proj-desc { font-size: 0.76rem; color: #555; margin: 3px 0 5px 0; }
+      .proj-stack { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 5px; }
+      .proj-stack .tag { background: #eef2ff; color: #6366f1; }
+      .proj-tasks { padding-left: 0; list-style: none; }
+      .proj-tasks li { font-size: 0.76rem; color: #444; line-height: 1.6; padding-left: 12px; position: relative; }
+      .proj-tasks li::before { content: '▸'; position: absolute; left: 0; color: #6366f1; font-size: 0.6rem; top: 3px; }
+      .proj-link { font-size: 0.7rem; color: #6366f1; text-decoration: none; }
+
+      /* ── 수상/활동 ── */
+      .award-item { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 5px; color: #444; }
+      .award-item span:first-child { font-weight: 600; color: #1e1e2e; }
+
+      /* ── 인쇄 버튼 (화면 전용) ── */
+      .print-btn {
+        display: block;
+        width: 210mm;
+        margin: 0 auto 12px;
+        padding: 9px;
+        background: #6366f1;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+      }
+      .print-hint { width: 210mm; margin: 0 auto 6px; font-size: 0.72rem; color: #888; text-align: center; }
+
+      /* ── 인쇄 ── */
+      @media print {
+        body { background: #fff; }
+        .page { margin: 0; padding: 12mm 14mm; box-shadow: none; width: 100%; }
+        .print-btn, .print-hint { display: none; }
+        a { color: inherit; text-decoration: none; }
+        .page-break-before { break-before: page; page-break-before: always; }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="print-hint">💡 인쇄 시 여백 "없음"으로 설정하면 A4 한 장에 맞게 출력됩니다.</p>
+    <button class="print-btn" onclick="window.print()">🖨️ PDF로 저장 / 인쇄</button>
+
+    <div class="page">
+
+      <!-- ── 헤더 ── -->
+      <div class="header">
+        <div class="header-identity">
+          <img class="header-photo" src="/profile.JPG" alt="이창열 프로필 사진" />
+          <div class="header-left">
+            <h1>이창열</h1>
+            <div class="sub">Frontend Developer</div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div>📧 <a href="mailto:leecy0131@gmail.com">leecy0131@gmail.com</a></div>
+          <div>📱 010-3801-2614</div>
+          <div>🔗 <a href="https://github.com/ckdduf138" target="_blank">github.com/ckdduf138</a></div>
+          <div>🏆 <a href="https://solved.ac/profile/ckdduf138" target="_blank">solved.ac/profile/ckdduf138</a></div>
+          <div>🌐 <a href="/" target="_blank">포트폴리오 사이트</a></div>
+        </div>
+      </div>
+
+      <!-- ── 프로필 ── -->
+      <section>
+        <div class="section-title">Profile</div>
+        <p style="font-size:0.82rem; color:#444; line-height:1.8;">
+          사용자 경험을 개발자의 책임으로 바라보는 프론트엔드 개발자입니다. TypeScript · React · Next.js 기반으로 총 1년 3개월의 실무 경험과 알고리즘 시각화 플랫폼 · PWA · SSR 등 다양한 사이드 프로젝트를 보유하고 있습니다. 어떤 UI 배치가 더 직관적인지, 어떤 인터랙션이 더 자연스러운지를 먼저 고민하며 개발합니다.
+        </p>
+      </section>
+
+      <!-- ── 경력 ── -->
+      <section>
+        <div class="section-title">Experience</div>
+        
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-company">스윙크 (Swink)<span class="exp-badge">산업기능요원</span></div>
+            <div class="exp-period">2022.12 – 2024.02</div>
+          </div>
+          <div class="exp-meta">프론트엔드 개발자</div>
+          <ul class="exp-tasks">
+            <li>메가스터디(엘리하이) · 웅진씽크빅 · EBS · 아이스크림 미디어 납품용 유아·초등 대상 국어/수학 웹 게임 콘텐츠 3종을 Cocos Creator + TypeScript로 단독 개발</li>
+            <li>씬(Scene) 전환 · 타이머 · 점수 집계 등 게임 핵심 흐름을 설계하고, Cocos Creator의 컴포넌트 라이프사이클(onLoad · start · update)을 활용해 게임 상태를 모듈 단위로 분리 관리</li>
+            <li>Cocos Creator의 Prefab 기능으로 정답·오답 피드백 UI(이펙트 애니메이션, 팝업, 효과음 트리거)를 재사용 가능한 컴포넌트로 설계 — 각 씬에서 일관된 UX를 유지하면서 반복 구현을 제거</li>
+            <li>버튼·진행바·결과 팝업 등 공통 UI 요소를 Prefab으로 추출해 다음 콘텐츠 제작 시 즉시 재활용할 수 있는 개발 구조를 확립 — 콘텐츠당 초기 구성 시간 단축</li>
+            <li>클라이언트 검수 단계에서 접수된 피드백을 반영해 수정 배포를 완료하고 최종 납품 승인 획득</li>
+          </ul>
+          <a class="proj-link" href="http://swink.co.kr/html/" target="_blank">🔗 swink.co.kr</a>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-company">넥솔시스템 (Nexol System)<span class="exp-badge">산업기능요원</span></div>
+            <div class="exp-period">2021.12 – 2022.12</div>
+          </div>
+          <div class="exp-meta">프론트엔드 개발자</div>
+          <ul class="exp-tasks">
+            <li>기존에 종이로 처리하던 사내 품의서·결재 프로세스를 웹으로 전환 — Vue.js + Spring Boot 기반으로 신규 개발</li>
+            <li>다단계 결재선 구성, 첨부파일 체인 연결, 결재 이력 타임라인 조회 등 복잡한 업무 로직을 분석해 직관적인 UI로 구조화 — 기존 종이 서식의 흐름을 유지하면서 디지털 전환 완성</li>
+            <li>Vue.js + Play Framework 기반 사내 그룹웨어 유지보수 및 신규 기능 개발 — 10개 이상의 화면을 혼자 담당</li>
+            <li>MSSQL 2008 → 2019 버전 업그레이드 시 기존 코드에서 쓰던 구형 조인 문법(*= 등)이 2019에서 동작하지 않아, 전체 쿼리를 검토하고 표준 LEFT JOIN 구문으로 일괄 수정</li>
+            <li>Spring Boot REST API와 연동되는 백오피스 화면을 신규 구축하고, 유지보수 비용이 높은 레거시 코드를 리팩토링해 모듈 구조와 코드 가독성을 개선</li>
+          </ul>
+          <a class="proj-link" href="https://www.nexol.co.kr" target="_blank">🔗 nexol.co.kr</a>
+        </div>
+      </section>
+
+      <!-- ── 학력 ── -->
+      <section>
+        <div class="section-title">Education</div>
+        
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">동양미래대학교<span class="edu-badge">졸업</span></div>
+            <div class="edu-major">컴퓨터공학과</div>
+          </div>
+          <div class="edu-period">2025.03 – 2026.02</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">유한대학교<span class="edu-badge">졸업</span></div>
+            <div class="edu-major">컴퓨터소프트웨어공학과</div>
+          </div>
+          <div class="edu-period">2020.03 – 2025.02</div>
+        </div>
+      </section>
+
+      <!-- ── 기술 스택 ── -->
+      <section>
+        <div class="section-title">Tech Stack</div>
+        
+        <div class="skill-row">
+          <div class="skill-label">Languages</div>
+          <div class="skill-tags">
+            <span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-label">Frameworks</div>
+          <div class="skill-tags">
+            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Vite</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-label">Styling &amp; State</div>
+          <div class="skill-tags">
+            <span class="tag">TailwindCSS</span><span class="tag">styled-components</span><span class="tag">SCSS</span><span class="tag">Zustand</span><span class="tag">React Query</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-label">Tools &amp; Deploy</div>
+          <div class="skill-tags">
+            <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Figma</span><span class="tag">Storybook</span><span class="tag">Vercel</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 프로젝트 ── -->
+      <section class="page-break-before">
+        <div class="section-title">Projects</div>
+        
+        <div class="proj-item">
+          <div class="proj-header">
+            <div class="proj-name">Algorithm Canvas</div>
+          </div>
+          <div class="proj-desc">알고리즘 PS에 대한 열정에서 시작한 시각화 학습 플랫폼</div>
+          <div class="proj-stack">
+            <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">visx</span><span class="tag">styled-components</span><span class="tag">Vercel</span>
+          </div>
+          <ul class="proj-tasks">
+            <li>자료구조(스택·큐·힙) 실시간 시각화 구현</li>
+            <li>버블·삽입·선택·퀵 정렬 단계별 애니메이션</li>
+            <li>BFS·DFS·최단경로 그래프 알고리즘 시각화</li>
+          </ul>
+          <a class="proj-link" href="https://algorithm-canvas.vercel.app/" target="_blank">🔗 algorithm-canvas.vercel.app</a>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div class="proj-name">LPick</div>
+          </div>
+          <div class="proj-desc">LP·음향 기기 커뮤니티 플랫폼 (팀 프로젝트)</div>
+          <div class="proj-stack">
+            <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">Zustand</span><span class="tag">TailwindCSS</span><span class="tag">Storybook</span>
+          </div>
+          <ul class="proj-tasks">
+            <li>Next.js 15 App Router 기반 SSR 개발</li>
+            <li>Zustand를 활용한 전역 상태 관리</li>
+            <li>카카오 소셜 로그인/회원가입 구현</li>
+          </ul>
+          
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div class="proj-name">Reportory</div>
+          </div>
+          <div class="proj-desc">데일리 리포트 작성 및 관리 도구</div>
+          <div class="proj-stack">
+            <span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">TailwindCSS</span><span class="tag">Vercel</span>
+          </div>
+          <ul class="proj-tasks">
+            <li>로컬스토리지 기반 오프라인 데이터 관리</li>
+            <li>버전 관리 및 업데이트 히스토리 시스템</li>
+            <li>SEO 최적화 및 메타데이터 개선</li>
+          </ul>
+          <a class="proj-link" href="https://reportory.vercel.app" target="_blank">🔗 reportory.vercel.app</a>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div class="proj-name">FoodLog</div>
+          </div>
+          <div class="proj-desc">음식 경험을 기록하는 PWA</div>
+          <div class="proj-stack">
+            <span class="tag">Next.js 15</span><span class="tag">TypeScript</span><span class="tag">TailwindCSS</span><span class="tag">IndexedDB</span><span class="tag">Dexie.js</span><span class="tag">PWA</span><span class="tag">Kakao Map API</span>
+          </div>
+          <ul class="proj-tasks">
+            <li>카카오 지도 API 연동 · 현재 위치 기반 음식점 검색</li>
+            <li>IndexedDB(Dexie.js) 기반 오프라인 데이터 저장</li>
+            <li>PWA 적용 — 홈 화면 설치 및 오프라인 지원</li>
+          </ul>
+          <a class="proj-link" href="https://foodlog-five.vercel.app" target="_blank">🔗 foodlog-five.vercel.app</a>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-header">
+            <div class="proj-name">WebPocket</div>
+          </div>
+          <div class="proj-desc">설치 없이 웹앱을 앱처럼 사용하는 웹앱 디렉토리 플랫폼 (팀 프로젝트)</div>
+          <div class="proj-stack">
+            <span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">TailwindCSS 4</span><span class="tag">Vercel</span>
+          </div>
+          <ul class="proj-tasks">
+            <li>카테고리별 웹앱 검색 및 필터링 UI 구현</li>
+            <li>사용자 웹사이트 직접 등록(업로드) 기능</li>
+            <li>PWA 지원 — 홈 화면 추가 및 네이티브 앱처럼 실행</li>
+          </ul>
+          <a class="proj-link" href="https://webpocket.vercel.app/" target="_blank">🔗 webpocket.vercel.app</a>
+        </div>
+      </section>
+
+      <!-- ── 수상 및 활동 ── -->
+      <section>
+        <div class="section-title">Awards &amp; Activities</div>
+        
+        <div class="award-item">
+          <span>ICPC Asia Seoul Regional 68th</span>
+          <span>2021</span>
+        </div>
+
+        <div class="award-item">
+          <span>2025학년도 졸업작품 경진대회 4th</span>
+          <span>2025</span>
+        </div>
+
+        <div class="award-item">
+          <span>PS 스터디 운영 (알고리즘 대회 준비, UCPC · SCPC 참가)</span>
+          <span>2021 – 현재</span>
+        </div>
+
+        <div class="award-item">
+          <span>산업기능요원 복무 완료</span>
+          <span>2021.12 – 2023.02</span>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>
