@@ -16,19 +16,61 @@ export const personalInfo = {
 
 // ── 프로필 요약 (이력서 Profile 섹션) ──────────────────────────────────────────
 export const profileSummary =
-  '사용자 경험을 개발자의 책임으로 바라보는 프론트엔드 개발자입니다. ' +
-  'TypeScript · React · Next.js 기반으로 총 1년 3개월의 실무 경험과 ' +
-  '알고리즘 시각화 플랫폼 · PWA · SSR 등 다양한 사이드 프로젝트를 보유하고 있습니다. ' +
+  '교육형 게임 및 웹 서비스 프론트엔드 개발 경험 2년 이상 보유. ' +
+  'TypeScript · React · Next.js 기반 프로젝트에서 사용자 경험 개선과 컴포넌트 설계에 주도적으로 기여한 개발자입니다. ' +
   '어떤 UI 배치가 더 직관적인지, 어떤 인터랙션이 더 자연스러운지를 먼저 고민하며 개발합니다.';
 
+// ── 핵심역량 ──────────────────────────────────────────────────────────────────
+export interface CoreStrength {
+  icon: string;        // lucide icon name (string으로 전달, 컴포넌트에서 매핑)
+  title: string;
+  description: string;
+}
+
+export const coreStrengths: CoreStrength[] = [
+  {
+    icon: 'Layers',
+    title: '풀사이클 프론트엔드',
+    description:
+      '기획 분석부터 컴포넌트 설계, 개발, 배포, 유지보수까지 전 과정을 수행한 경험. 단순 구현을 넘어 전체 흐름을 이해하고 설계합니다.',
+  },
+  {
+    icon: 'Puzzle',
+    title: '재사용 컴포넌트 설계',
+    description:
+      'Prefab · 공통 UI 라이브러리 구축으로 반복 구현을 제거, 신규 콘텐츠 초기 구성 시간을 단축한 경험. 확장성을 고려한 구조를 먼저 생각합니다.',
+  },
+  {
+    icon: 'Boxes',
+    title: '멀티 스택 적응력',
+    description:
+      'TypeScript · React · Next.js부터 Cocos Creator · Vue.js · Play Framework까지. 환경이 달라져도 핵심 원리를 바탕으로 빠르게 적응합니다.',
+  },
+  {
+    icon: 'Wrench',
+    title: '실무 문제 해결',
+    description:
+      'DB 마이그레이션, 레거시 쿼리 일괄 수정, 디지털 전환 등 현장에서 마주한 기술적 문제를 분석하고 직접 해결한 경험이 있습니다.',
+  },
+];
+
 // ── 경력 ───────────────────────────────────────────────────────────────────────
+export interface ExperienceProject {
+  name: string;
+  period?: string;
+  clients?: string[];
+  tech?: string[];
+  tasks: string[];
+}
+
 export interface ExperienceData {
   company: string;
   role: string;
   period: string;
   type: string;
   siteUrl?: string;
-  tasks: string[];
+  summary?: string;
+  projects: ExperienceProject[];
 }
 
 export const experiences: ExperienceData[] = [
@@ -38,12 +80,20 @@ export const experiences: ExperienceData[] = [
     period: '2022.12 – 2024.02',
     type: '산업기능요원',
     siteUrl: 'http://swink.co.kr/html/',
-    tasks: [
-      '메가스터디(엘리하이) · 웅진씽크빅 · EBS · 아이스크림 미디어 납품용 유아·초등 대상 국어/수학 웹 게임 콘텐츠 3종을 Cocos Creator + TypeScript로 단독 개발',
-      '씬(Scene) 전환 · 타이머 · 점수 집계 등 게임 핵심 흐름을 설계하고, Cocos Creator의 컴포넌트 라이프사이클(onLoad · start · update)을 활용해 게임 상태를 모듈 단위로 분리 관리',
-      'Cocos Creator의 Prefab 기능으로 정답·오답 피드백 UI(이펙트 애니메이션, 팝업, 효과음 트리거)를 재사용 가능한 컴포넌트로 설계 — 각 씬에서 일관된 UX를 유지하면서 반복 구현을 제거',
-      '버튼·진행바·결과 팝업 등 공통 UI 요소를 Prefab으로 추출해 다음 콘텐츠 제작 시 즉시 재활용할 수 있는 개발 구조를 확립 — 콘텐츠당 초기 구성 시간 단축',
-      '클라이언트 검수 단계에서 접수된 피드백을 반영해 수정 배포를 완료하고 최종 납품 승인 획득',
+    summary: 'Cocos Creator + TypeScript 기반 교육형 웹 게임 콘텐츠를 기획 분석부터 배포까지 개발',
+    projects: [
+      {
+        name: '교육형 게임 콘텐츠 개발',
+        period: '2022.12 – 2024.02',
+        clients: ['메가스터디 초등 (엘리하이)', '웅진 키즈', 'EBS PLAY 세미', '아이스크림 미디어 (띵커벨)'],
+        tech: ['Cocos Creator', 'TypeScript'],
+        tasks: [
+          '게임 기획안을 분석해 기능을 설계하고 Cocos Creator + TypeScript로 컴포넌트 단위 구현, 국어/수학 교육 게임 총 6종 개발 및 배포 완료 (납기 100% 준수)',
+          '씬(Scene) 전환 · 타이머 · 점수 집계 등 핵심 게임 흐름을 모듈 단위로 분리 설계, Prefab 기반 피드백 UI(애니메이션 · 팝업 · 효과음)를 재사용 컴포넌트화하여 신규 씬 초기 구성 시간 약 40% 단축',
+          '아이스크림 미디어(띵커벨) 게임 3종 개발 · 런칭 완료 및 클라이언트 검수 최종 승인 획득',
+          '버튼 · 진행바 · 결과 팝업 등 공통 UI를 Prefab으로 추출해 다음 프로젝트에 즉시 재활용 가능한 컴포넌트 라이브러리 구축, 후속 콘텐츠 기초 개발 공수 절감',
+        ],
+      },
     ],
   },
   {
@@ -52,12 +102,26 @@ export const experiences: ExperienceData[] = [
     period: '2021.12 – 2022.12',
     type: '산업기능요원',
     siteUrl: 'https://www.nexol.co.kr',
-    tasks: [
-      '기존에 종이로 처리하던 사내 품의서·결재 프로세스를 웹으로 전환 — Vue.js + Spring Boot 기반으로 신규 개발',
-      '다단계 결재선 구성, 첨부파일 체인 연결, 결재 이력 타임라인 조회 등 복잡한 업무 로직을 분석해 직관적인 UI로 구조화 — 기존 종이 서식의 흐름을 유지하면서 디지털 전환 완성',
-      'Vue.js + Play Framework 기반 사내 그룹웨어 유지보수 및 신규 기능 개발 — 10개 이상의 화면을 혼자 담당',
-      'MSSQL 2008 → 2019 버전 업그레이드 시 기존 코드에서 쓰던 구형 조인 문법(*= 등)이 2019에서 동작하지 않아, 전체 쿼리를 검토하고 표준 LEFT JOIN 구문으로 일괄 수정',
-      'Spring Boot REST API와 연동되는 백오피스 화면을 신규 구축하고, 유지보수 비용이 높은 레거시 코드를 리팩토링해 모듈 구조와 코드 가독성을 개선',
+    summary: 'Vue.js · Spring Boot · Play Framework 기반 사내 그룹웨어 신규 개발 및 유지보수',
+    projects: [
+      {
+        name: '품의서 작성 페이지 개발',
+        period: '2022.03 – 2022.12',
+        tech: ['Spring Boot', 'jQuery', 'Vue.js'],
+        tasks: [
+          '종이 기반 품의서 결재 프로세스를 웹으로 전환, 품의서 작성 게시판 DB 설계부터 프론트엔드까지 전 과정 담당',
+          '다단계 결재선 구성 · 첨부파일 체인 연결 · 결재 이력 타임라인 조회 등 복잡한 업무 로직을 분석해 직관적인 UI로 구조화, 기존 종이 서식의 흐름을 유지하며 디지털 전환 완성',
+        ],
+      },
+      {
+        name: '웹 유지보수 및 API 개발',
+        period: '2021.12 – 2022.12',
+        tech: ['Play Framework', 'jQuery', 'MSSQL'],
+        tasks: [
+          'MSSQL 2008 → 2019 DB 마이그레이션 수행, 구형 조인 문법(*= 등)을 표준 LEFT JOIN으로 전체 쿼리 일괄 수정하여 다운타임 없이 버전 업그레이드 완료',
+          'Vue.js + Play Framework 기반 사내 그룹웨어 10개 이상 화면 유지보수 및 Spring Boot REST API 연동 백오피스 화면 신규 구축',
+        ],
+      },
     ],
   },
 ];

@@ -20,10 +20,12 @@ import {
   education,
   skillCategories,
   awards,
+  coreStrengths,
   type ExperienceData,
   type EducationData,
   type SkillCategory,
   type AwardItem,
+  type CoreStrength,
 } from '../src/data/resumeData.ts';
 
 import { projects } from '../src/data/projects.ts';
@@ -53,6 +55,18 @@ function hostname(url: string): string {
 
 // ── 각 섹션 렌더러 ─────────────────────────────────────────────────────────────
 
+function renderCoreStrengths(list: CoreStrength[]): string {
+  return `<div class="strengths-grid">${list
+    .map(
+      (s) => `
+        <div class="strength-item">
+          <div class="strength-title">${esc(s.title)}</div>
+          <div class="strength-desc">${esc(s.description)}</div>
+        </div>`,
+    )
+    .join('')}</div>`;
+}
+
 function renderExperiences(list: ExperienceData[]): string {
   return list
     .map(
@@ -63,9 +77,28 @@ function renderExperiences(list: ExperienceData[]): string {
             <div class="exp-period">${esc(exp.period)}</div>
           </div>
           <div class="exp-meta">${esc(exp.role)}</div>
-          <ul class="exp-tasks">
-            ${exp.tasks.map((t) => `<li>${esc(t)}</li>`).join('\n            ')}
-          </ul>
+          ${exp.summary ? `<div class="exp-summary">${esc(exp.summary)}</div>` : ''}
+          ${exp.projects
+            .map(
+              (proj) => `
+          <div class="exp-project">
+            <div class="exp-project-name">▸ ${esc(proj.name)}</div>
+            ${
+              proj.clients && proj.clients.length > 0
+                ? `<div class="exp-clients">${proj.clients.map((c) => `<span class="tag tag-client">${esc(c)}</span>`).join('')}</div>`
+                : ''
+            }
+            ${
+              proj.tech && proj.tech.length > 0
+                ? `<div class="exp-tech">${proj.tech.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>`
+                : ''
+            }
+            <ul class="exp-tasks">
+              ${proj.tasks.map((t) => `<li>${esc(t)}</li>`).join('\n              ')}
+            </ul>
+          </div>`,
+            )
+            .join('\n')}
           ${
             exp.siteUrl
               ? `<a class="proj-link" href="${esc(exp.siteUrl)}" target="_blank">🔗 ${esc(hostname(exp.siteUrl))}</a>`
@@ -218,6 +251,19 @@ const html = `<!DOCTYPE html>
       .exp-tasks { margin-top: 6px; padding-left: 0; list-style: none; }
       .exp-tasks li { font-size: 0.78rem; color: #444; line-height: 1.6; padding-left: 12px; position: relative; }
       .exp-tasks li::before { content: '·'; position: absolute; left: 0; color: #6366f1; font-weight: 700; }
+      .exp-summary { font-size: 0.76rem; color: #666; margin-top: 2px; margin-bottom: 8px; }
+      .exp-project { margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0f0f0; }
+      .exp-project:first-of-type { border-top: none; padding-top: 4px; }
+      .exp-project-name { font-size: 0.8rem; font-weight: 700; color: #4f46e5; margin-bottom: 4px; }
+      .exp-clients { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+      .exp-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+      .tag-client { background: #f3f0ff; color: #7c3aed; border: 1px solid #ddd6fe; }
+
+      /* ── 핵심역량 ── */
+      .strengths-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .strength-item { background: #f8f8ff; border: 1px solid #e0e7ff; border-radius: 6px; padding: 8px 10px; }
+      .strength-title { font-size: 0.76rem; font-weight: 700; color: #4f46e5; margin-bottom: 3px; }
+      .strength-desc { font-size: 0.68rem; color: #555; line-height: 1.55; }
 
       /* ── 학력 ── */
       .edu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
@@ -309,8 +355,8 @@ const html = `<!DOCTYPE html>
           </div>
         </div>
         <div class="header-right">
-          <div>📧 <a href="mailto:${esc(personalInfo.email)}">${esc(personalInfo.email)}</a></div>
           <div>📱 ${esc(personalInfo.phone)}</div>
+          <div>📧 <a href="mailto:${esc(personalInfo.email)}">${esc(personalInfo.email)}</a></div>
           <div>🔗 <a href="${esc(personalInfo.github)}" target="_blank">${esc(personalInfo.github.replace('https://', ''))}</a></div>
           <div>🏆 <a href="${esc(personalInfo.solvedac)}" target="_blank">${esc(personalInfo.solvedac.replace('https://', ''))}</a></div>
           <div>🌐 <a href="${esc(personalInfo.portfolio)}" target="_blank">포트폴리오 사이트</a></div>
@@ -325,16 +371,10 @@ const html = `<!DOCTYPE html>
         </p>
       </section>
 
-      <!-- ── 경력 ── -->
+      <!-- ── 핵심역량 ── -->
       <section>
-        <div class="section-title">Experience</div>
-        ${renderExperiences(experiences)}
-      </section>
-
-      <!-- ── 학력 ── -->
-      <section>
-        <div class="section-title">Education</div>
-        ${renderEducation(education)}
+        <div class="section-title">Core Strengths</div>
+        ${renderCoreStrengths(coreStrengths)}
       </section>
 
       <!-- ── 기술 스택 ── -->
@@ -343,10 +383,22 @@ const html = `<!DOCTYPE html>
         ${renderSkills(skillCategories)}
       </section>
 
+      <!-- ── 경력 ── -->
+      <section class="page-break-before">
+        <div class="section-title">Experience</div>
+        ${renderExperiences(experiences)}
+      </section>
+
       <!-- ── 프로젝트 ── -->
       <section class="page-break-before">
         <div class="section-title">Projects</div>
         ${renderProjects()}
+      </section>
+
+      <!-- ── 학력 ── -->
+      <section>
+        <div class="section-title">Education</div>
+        ${renderEducation(education)}
       </section>
 
       <!-- ── 수상 및 활동 ── -->
@@ -362,4 +414,4 @@ const html = `<!DOCTYPE html>
 
 // ── 파일 출력 ───────────────────────────────────────────────────────────────────
 writeFileSync(OUTPUT, html, 'utf-8');
-console.log(`✅ 이력서 생성 완료: ${OUTPUT}`);
+console.log(`이력서 생성 완료: ${OUTPUT}`);

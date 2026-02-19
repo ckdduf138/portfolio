@@ -72,6 +72,19 @@
       .exp-tasks { margin-top: 6px; padding-left: 0; list-style: none; }
       .exp-tasks li { font-size: 0.78rem; color: #444; line-height: 1.6; padding-left: 12px; position: relative; }
       .exp-tasks li::before { content: '·'; position: absolute; left: 0; color: #6366f1; font-weight: 700; }
+      .exp-summary { font-size: 0.76rem; color: #666; margin-top: 2px; margin-bottom: 8px; }
+      .exp-project { margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0f0f0; }
+      .exp-project:first-of-type { border-top: none; padding-top: 4px; }
+      .exp-project-name { font-size: 0.8rem; font-weight: 700; color: #4f46e5; margin-bottom: 4px; }
+      .exp-clients { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+      .exp-tech { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+      .tag-client { background: #f3f0ff; color: #7c3aed; border: 1px solid #ddd6fe; }
+
+      /* ── 핵심역량 ── */
+      .strengths-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .strength-item { background: #f8f8ff; border: 1px solid #e0e7ff; border-radius: 6px; padding: 8px 10px; }
+      .strength-title { font-size: 0.76rem; font-weight: 700; color: #4f46e5; margin-bottom: 3px; }
+      .strength-desc { font-size: 0.68rem; color: #555; line-height: 1.55; }
 
       /* ── 학력 ── */
       .edu-item { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
@@ -163,8 +176,8 @@
           </div>
         </div>
         <div class="header-right">
-          <div>📧 <a href="mailto:leecy0131@gmail.com">leecy0131@gmail.com</a></div>
           <div>📱 010-3801-2614</div>
+          <div>📧 <a href="mailto:leecy0131@gmail.com">leecy0131@gmail.com</a></div>
           <div>🔗 <a href="https://github.com/ckdduf138" target="_blank">github.com/ckdduf138</a></div>
           <div>🏆 <a href="https://solved.ac/profile/ckdduf138" target="_blank">solved.ac/profile/ckdduf138</a></div>
           <div>🌐 <a href="/" target="_blank">포트폴리오 사이트</a></div>
@@ -175,66 +188,30 @@
       <section>
         <div class="section-title">Profile</div>
         <p style="font-size:0.82rem; color:#444; line-height:1.8;">
-          사용자 경험을 개발자의 책임으로 바라보는 프론트엔드 개발자입니다. TypeScript · React · Next.js 기반으로 총 1년 3개월의 실무 경험과 알고리즘 시각화 플랫폼 · PWA · SSR 등 다양한 사이드 프로젝트를 보유하고 있습니다. 어떤 UI 배치가 더 직관적인지, 어떤 인터랙션이 더 자연스러운지를 먼저 고민하며 개발합니다.
+          교육형 게임 및 웹 서비스 프론트엔드 개발 경험 2년 이상 보유. TypeScript · React · Next.js 기반 프로젝트에서 사용자 경험 개선과 컴포넌트 설계에 주도적으로 기여한 개발자입니다. 어떤 UI 배치가 더 직관적인지, 어떤 인터랙션이 더 자연스러운지를 먼저 고민하며 개발합니다.
         </p>
       </section>
 
-      <!-- ── 경력 ── -->
+      <!-- ── 핵심역량 ── -->
       <section>
-        <div class="section-title">Experience</div>
-        
-        <div class="exp-item">
-          <div class="exp-header">
-            <div class="exp-company">스윙크 (Swink)<span class="exp-badge">산업기능요원</span></div>
-            <div class="exp-period">2022.12 – 2024.02</div>
-          </div>
-          <div class="exp-meta">프론트엔드 개발자</div>
-          <ul class="exp-tasks">
-            <li>메가스터디(엘리하이) · 웅진씽크빅 · EBS · 아이스크림 미디어 납품용 유아·초등 대상 국어/수학 웹 게임 콘텐츠 3종을 Cocos Creator + TypeScript로 단독 개발</li>
-            <li>씬(Scene) 전환 · 타이머 · 점수 집계 등 게임 핵심 흐름을 설계하고, Cocos Creator의 컴포넌트 라이프사이클(onLoad · start · update)을 활용해 게임 상태를 모듈 단위로 분리 관리</li>
-            <li>Cocos Creator의 Prefab 기능으로 정답·오답 피드백 UI(이펙트 애니메이션, 팝업, 효과음 트리거)를 재사용 가능한 컴포넌트로 설계 — 각 씬에서 일관된 UX를 유지하면서 반복 구현을 제거</li>
-            <li>버튼·진행바·결과 팝업 등 공통 UI 요소를 Prefab으로 추출해 다음 콘텐츠 제작 시 즉시 재활용할 수 있는 개발 구조를 확립 — 콘텐츠당 초기 구성 시간 단축</li>
-            <li>클라이언트 검수 단계에서 접수된 피드백을 반영해 수정 배포를 완료하고 최종 납품 승인 획득</li>
-          </ul>
-          <a class="proj-link" href="http://swink.co.kr/html/" target="_blank">🔗 swink.co.kr</a>
+        <div class="section-title">Core Strengths</div>
+        <div class="strengths-grid">
+        <div class="strength-item">
+          <div class="strength-title">풀사이클 프론트엔드</div>
+          <div class="strength-desc">기획 분석부터 컴포넌트 설계, 개발, 배포, 유지보수까지 전 과정을 수행한 경험. 단순 구현을 넘어 전체 흐름을 이해하고 설계합니다.</div>
         </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div class="exp-company">넥솔시스템 (Nexol System)<span class="exp-badge">산업기능요원</span></div>
-            <div class="exp-period">2021.12 – 2022.12</div>
-          </div>
-          <div class="exp-meta">프론트엔드 개발자</div>
-          <ul class="exp-tasks">
-            <li>기존에 종이로 처리하던 사내 품의서·결재 프로세스를 웹으로 전환 — Vue.js + Spring Boot 기반으로 신규 개발</li>
-            <li>다단계 결재선 구성, 첨부파일 체인 연결, 결재 이력 타임라인 조회 등 복잡한 업무 로직을 분석해 직관적인 UI로 구조화 — 기존 종이 서식의 흐름을 유지하면서 디지털 전환 완성</li>
-            <li>Vue.js + Play Framework 기반 사내 그룹웨어 유지보수 및 신규 기능 개발 — 10개 이상의 화면을 혼자 담당</li>
-            <li>MSSQL 2008 → 2019 버전 업그레이드 시 기존 코드에서 쓰던 구형 조인 문법(*= 등)이 2019에서 동작하지 않아, 전체 쿼리를 검토하고 표준 LEFT JOIN 구문으로 일괄 수정</li>
-            <li>Spring Boot REST API와 연동되는 백오피스 화면을 신규 구축하고, 유지보수 비용이 높은 레거시 코드를 리팩토링해 모듈 구조와 코드 가독성을 개선</li>
-          </ul>
-          <a class="proj-link" href="https://www.nexol.co.kr" target="_blank">🔗 nexol.co.kr</a>
+        <div class="strength-item">
+          <div class="strength-title">재사용 컴포넌트 설계</div>
+          <div class="strength-desc">Prefab · 공통 UI 라이브러리 구축으로 반복 구현을 제거, 신규 콘텐츠 초기 구성 시간을 단축한 경험. 확장성을 고려한 구조를 먼저 생각합니다.</div>
         </div>
-      </section>
-
-      <!-- ── 학력 ── -->
-      <section>
-        <div class="section-title">Education</div>
-        
-        <div class="edu-item">
-          <div>
-            <div class="edu-school">동양미래대학교<span class="edu-badge">졸업</span></div>
-            <div class="edu-major">컴퓨터공학과</div>
-          </div>
-          <div class="edu-period">2025.03 – 2026.02</div>
+        <div class="strength-item">
+          <div class="strength-title">멀티 스택 적응력</div>
+          <div class="strength-desc">TypeScript · React · Next.js부터 Cocos Creator · Vue.js · Play Framework까지. 환경이 달라져도 핵심 원리를 바탕으로 빠르게 적응합니다.</div>
         </div>
-
-        <div class="edu-item">
-          <div>
-            <div class="edu-school">유한대학교<span class="edu-badge">졸업</span></div>
-            <div class="edu-major">컴퓨터소프트웨어공학과</div>
-          </div>
-          <div class="edu-period">2020.03 – 2025.02</div>
-        </div>
+        <div class="strength-item">
+          <div class="strength-title">실무 문제 해결</div>
+          <div class="strength-desc">DB 마이그레이션, 레거시 쿼리 일괄 수정, 디지털 전환 등 현장에서 마주한 기술적 문제를 분석하고 직접 해결한 경험이 있습니다.</div>
+        </div></div>
       </section>
 
       <!-- ── 기술 스택 ── -->
@@ -267,6 +244,63 @@
           <div class="skill-tags">
             <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Figma</span><span class="tag">Storybook</span><span class="tag">Vercel</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
           </div>
+        </div>
+      </section>
+
+      <!-- ── 경력 ── -->
+      <section class="page-break-before">
+        <div class="section-title">Experience</div>
+        
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-company">스윙크 (Swink)<span class="exp-badge">산업기능요원</span></div>
+            <div class="exp-period">2022.12 – 2024.02</div>
+          </div>
+          <div class="exp-meta">프론트엔드 개발자</div>
+          <div class="exp-summary">Cocos Creator + TypeScript 기반 교육형 웹 게임 콘텐츠를 기획 분석부터 배포까지 개발</div>
+          
+          <div class="exp-project">
+            <div class="exp-project-name">▸ 교육형 게임 콘텐츠 개발</div>
+            <div class="exp-clients"><span class="tag tag-client">메가스터디 초등 (엘리하이)</span><span class="tag tag-client">웅진 키즈</span><span class="tag tag-client">EBS PLAY 세미</span><span class="tag tag-client">아이스크림 미디어 (띵커벨)</span></div>
+            <div class="exp-tech"><span class="tag">Cocos Creator</span><span class="tag">TypeScript</span></div>
+            <ul class="exp-tasks">
+              <li>게임 기획안을 분석해 기능을 설계하고 Cocos Creator + TypeScript로 컴포넌트 단위 구현, 국어/수학 교육 게임 총 6종 개발 및 배포 완료 (납기 100% 준수)</li>
+              <li>씬(Scene) 전환 · 타이머 · 점수 집계 등 핵심 게임 흐름을 모듈 단위로 분리 설계, Prefab 기반 피드백 UI(애니메이션 · 팝업 · 효과음)를 재사용 컴포넌트화하여 신규 씬 초기 구성 시간 약 40% 단축</li>
+              <li>아이스크림 미디어(띵커벨) 게임 3종 개발 · 런칭 완료 및 클라이언트 검수 최종 승인 획득</li>
+              <li>버튼 · 진행바 · 결과 팝업 등 공통 UI를 Prefab으로 추출해 다음 프로젝트에 즉시 재활용 가능한 컴포넌트 라이브러리 구축, 후속 콘텐츠 기초 개발 공수 절감</li>
+            </ul>
+          </div>
+          <a class="proj-link" href="http://swink.co.kr/html/" target="_blank">🔗 swink.co.kr</a>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-company">넥솔시스템 (Nexol System)<span class="exp-badge">산업기능요원</span></div>
+            <div class="exp-period">2021.12 – 2022.12</div>
+          </div>
+          <div class="exp-meta">프론트엔드 개발자</div>
+          <div class="exp-summary">Vue.js · Spring Boot · Play Framework 기반 사내 그룹웨어 신규 개발 및 유지보수</div>
+          
+          <div class="exp-project">
+            <div class="exp-project-name">▸ 품의서 작성 페이지 개발</div>
+            
+            <div class="exp-tech"><span class="tag">Spring Boot</span><span class="tag">jQuery</span><span class="tag">Vue.js</span></div>
+            <ul class="exp-tasks">
+              <li>종이 기반 품의서 결재 프로세스를 웹으로 전환, 품의서 작성 게시판 DB 설계부터 프론트엔드까지 전 과정 담당</li>
+              <li>다단계 결재선 구성 · 첨부파일 체인 연결 · 결재 이력 타임라인 조회 등 복잡한 업무 로직을 분석해 직관적인 UI로 구조화, 기존 종이 서식의 흐름을 유지하며 디지털 전환 완성</li>
+            </ul>
+          </div>
+
+          <div class="exp-project">
+            <div class="exp-project-name">▸ 웹 유지보수 및 API 개발</div>
+            
+            <div class="exp-tech"><span class="tag">Play Framework</span><span class="tag">jQuery</span><span class="tag">MSSQL</span></div>
+            <ul class="exp-tasks">
+              <li>MSSQL 2008 → 2019 DB 마이그레이션 수행, 구형 조인 문법(*= 등)을 표준 LEFT JOIN으로 전체 쿼리 일괄 수정하여 다운타임 없이 버전 업그레이드 완료</li>
+              <li>Vue.js + Play Framework 기반 사내 그룹웨어 10개 이상 화면 유지보수 및 Spring Boot REST API 연동 백오피스 화면 신규 구축</li>
+            </ul>
+          </div>
+          <a class="proj-link" href="https://www.nexol.co.kr" target="_blank">🔗 nexol.co.kr</a>
         </div>
       </section>
 
@@ -352,6 +386,27 @@
             <li>PWA 지원 — 홈 화면 추가 및 네이티브 앱처럼 실행</li>
           </ul>
           <a class="proj-link" href="https://webpocket.vercel.app/" target="_blank">🔗 webpocket.vercel.app</a>
+        </div>
+      </section>
+
+      <!-- ── 학력 ── -->
+      <section>
+        <div class="section-title">Education</div>
+        
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">동양미래대학교<span class="edu-badge">졸업</span></div>
+            <div class="edu-major">컴퓨터공학과</div>
+          </div>
+          <div class="edu-period">2025.03 – 2026.02</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">유한대학교<span class="edu-badge">졸업</span></div>
+            <div class="edu-major">컴퓨터소프트웨어공학과</div>
+          </div>
+          <div class="edu-period">2020.03 – 2025.02</div>
         </div>
       </section>
 
