@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Layers, Puzzle, Boxes, Wrench } from 'lucide-react';
+import { useTypewriter } from '@/hooks/useTypewriter';
 import { useMousePosition } from '@/hooks/useMousePosition';
 import { coreStrengths } from '@/data/resumeData';
 
@@ -11,7 +12,15 @@ const iconMap: Record<string, React.ReactNode> = {
   Wrench: <Wrench  size={24} />,
 };
 
+const roles = [
+  'Frontend Developer',
+  'React Developer',
+  'TypeScript Lover',
+  'UX Enthusiast',
+];
+
 const HeroSection = () => {
+  const displayText = useTypewriter(roles, 80, 2200);
   const { normalizedX, normalizedY } = useMousePosition();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -114,9 +123,9 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
-        className="relative z-10 flex-1 flex items-end justify-center px-6 pb-8"
+        className="relative z-10 flex-1 flex items-center justify-center px-6"
       >
-        <div className="max-w-4xl w-full text-center pt-20 sm:pt-0">
+        <div className="max-w-4xl w-full text-center pt-20 sm:pt-16">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -139,7 +148,18 @@ const HeroSection = () => {
             이창열
           </motion.h1>
 
-          {/* 태그라인 */}
+          {/* 타입라이터 */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.48, duration: 0.5 }}
+            className="flex items-center justify-center gap-1 h-9 mb-2"
+          >
+            <span className="text-lg sm:text-xl font-medium text-gray-300">
+              {displayText}
+            </span>
+            <span className="animate-blink text-primary-400 text-lg sm:text-xl font-medium">|</span>
+          </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,7 +173,7 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.62, duration: 0.55 }}
+            transition={{ delay: 0.7, duration: 0.55 }}
             className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed mb-6"
           >
             TypeScript · React 기반으로 기획부터 배포까지 경험한 2년차 개발자입니다.
@@ -163,7 +183,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75, duration: 0.5 }}
+            transition={{ delay: 0.82, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3"
           >
             <motion.button
@@ -207,7 +227,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.6 }}
-        className="relative z-10 w-full border-t border-white/[0.08]"
+        className="relative z-10 w-full border-t border-white/[0.08] pb-[10%]"
       >
         {/* 섹션 라벨 */}
         <div className="text-center pt-3 pb-1">
@@ -216,14 +236,14 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 pb-8 grid grid-cols-2 md:grid-cols-4">
+        <div className="max-w-5xl mx-auto px-4 pb-4 grid grid-cols-2 md:grid-cols-4">
           {coreStrengths.map((s, i) => (
             <motion.div
               key={s.title}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0 + i * 0.08, duration: 0.45 }}
-              className="group relative flex flex-col gap-3 px-6 py-6 border-l border-white/[0.07] first:border-l-0 md:first:border-l-0 hover:bg-white/[0.03] transition-colors duration-200"
+              className="group relative flex flex-col gap-2 px-6 py-4 border-l border-white/[0.07] first:border-l-0 md:first:border-l-0 hover:bg-white/[0.03] transition-colors duration-200"
             >
               {/* 아이콘 */}
               <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary-500/10 text-primary-400 group-hover:bg-primary-500/20 group-hover:text-primary-300 transition-all duration-200">
