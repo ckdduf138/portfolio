@@ -16,9 +16,9 @@ export const personalInfo = {
 
 // ── 프로필 요약 (이력서 Profile 섹션) ──────────────────────────────────────────
 export const profileSummary =
-  '교육형 게임 및 웹 서비스 프론트엔드 개발 경험 2년 이상 보유. ' +
-  'TypeScript · React · Next.js 기반 프로젝트에서 사용자 경험 개선과 컴포넌트 설계에 주도적으로 기여한 개발자입니다. ' +
-  '어떤 UI 배치가 더 직관적인지, 어떤 인터랙션이 더 자연스러운지를 먼저 고민하며 개발합니다.';
+  'ICPC 본선 진출 경험을 바탕으로 복잡한 문제를 구조적으로 푸는 프론트엔드 개발자입니다. ' +
+  'TypeScript 실무 2년 이상, 재사용 컴포넌트 설계로 개발 공수를 40% 단축한 경험이 있습니다. ' +
+  '현재 그룹 의견 비교 플랫폼 Deerlink(deerlink.kr)를 직접 기획·개발·운영중입니다.';
 
 // ── 핵심역량 ──────────────────────────────────────────────────────────────────
 export interface CoreStrength {
@@ -156,10 +156,11 @@ export interface SkillCategory {
 }
 
 export const skillCategories: SkillCategory[] = [
-  { label: 'Languages',       skills: ['TypeScript', 'JavaScript'] },
-  { label: 'Frameworks',      skills: ['React', 'Next.js', 'Vite'] },
-  { label: 'Styling & State', skills: ['TailwindCSS', 'styled-components', 'SCSS', 'Zustand', 'React Query'] },
-  { label: 'Tools & Deploy',  skills: ['Git', 'GitHub', 'Figma', 'Storybook', 'Vercel', 'Docker', 'GitHub Actions'] },
+  { label: '주력',     skills: ['React', 'TypeScript', 'Next.js', 'JavaScript (ES6+)'] },
+  { label: '스타일링', skills: ['TailwindCSS', 'styled-components'] },
+  { label: '상태관리', skills: ['Zustand', 'React Query'] },
+  { label: '도구',     skills: ['Git', 'GitHub', 'Storybook', 'Vercel', 'GitHub Actions', 'Docker', 'Figma'] },
+  { label: '기타',     skills: ['Vue.js', 'C/C++', 'Cocos Creator'] },
 ];
 
 // ── 수상 및 활동 ───────────────────────────────────────────────────────────────

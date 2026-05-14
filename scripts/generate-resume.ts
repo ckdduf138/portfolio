@@ -139,8 +139,8 @@ function renderSkills(list: SkillCategory[]): string {
 }
 
 function renderProjects(): string {
-  // 이력서에는 featured 프로젝트만 포함 (최대 5개)
-  const featured = projects.filter((p) => p.featured).slice(0, 5);
+  // 이력서에는 featured 프로젝트만 포함 (최대 4개)
+  const featured = projects.filter((p) => p.featured).slice(0, 4);
   return featured
     .map(
       (p) => `
