@@ -18,7 +18,7 @@ export const personalInfo = {
 export const profileSummary =
   'ICPC 본선 진출 경험을 바탕으로 복잡한 문제를 구조적으로 푸는 프론트엔드 개발자입니다. ' +
   'TypeScript 실무 2년 이상, 재사용 컴포넌트 설계로 개발 공수를 40% 단축한 경험이 있습니다. ' +
-  '현재 그룹 의견 비교 플랫폼 Deerlink(deerlink.kr)를 직접 기획·개발·운영중입니다.';
+  '현재 상용 서비스 Deerlink(deerlink.kr)를 직접 기획·개발·운영중입니다.';
 
 // ── 핵심역량 ──────────────────────────────────────────────────────────────────
 export interface CoreStrength {
@@ -41,10 +41,10 @@ export const coreStrengths: CoreStrength[] = [
       'Prefab · 공통 UI 라이브러리 구축으로 반복 구현을 제거, 신규 콘텐츠 초기 구성 시간을 단축한 경험. 확장성을 고려한 구조를 먼저 생각합니다.',
   },
   {
-    icon: 'Boxes',
-    title: '멀티 스택 적응력',
+    icon: 'Sparkles',
+    title: 'AI 도구 활용 개발',
     description:
-      'TypeScript · React · Next.js부터 Cocos Creator · Vue.js · Play Framework까지. 환경이 달라져도 핵심 원리를 바탕으로 빠르게 적응합니다.',
+      'Claude Code · GitHub Copilot 등 AI 도구를 적극 활용해 반복 작업을 줄이고 개발 생산성을 높입니다. 도구의 한계와 강점을 이해하고 검증 가능한 결과만 받아들입니다.',
   },
   {
     icon: 'Wrench',
@@ -90,7 +90,7 @@ export const experiences: ExperienceData[] = [
         tasks: [
           '게임 기획안을 분석해 기능을 설계하고 Cocos Creator + TypeScript로 컴포넌트 단위 구현, 국어/수학 교육 게임 총 6종 개발 및 배포 완료 (납기 100% 준수)',
           '씬(Scene) 전환 · 타이머 · 점수 집계 등 핵심 게임 흐름을 모듈 단위로 분리 설계, Prefab 기반 피드백 UI(애니메이션 · 팝업 · 효과음)를 재사용 컴포넌트화하여 신규 씬 초기 구성 시간 약 40% 단축',
-          '아이스크림 미디어(띵커벨) 게임 3종 개발 · 런칭 완료 및 클라이언트 검수 최종 승인 획득',
+          '아이스크림 미디어(띵커벨) 게임 3종 개발 · 클라이언트 PM·기획자·디자이너와 협업하여 런칭 완료 및 검수 최종 승인 획득',
           '버튼 · 진행바 · 결과 팝업 등 공통 UI를 Prefab으로 추출해 다음 프로젝트에 즉시 재활용 가능한 컴포넌트 라이브러리 구축, 후속 콘텐츠 기초 개발 공수 절감',
         ],
       },
@@ -109,7 +109,7 @@ export const experiences: ExperienceData[] = [
         period: '2022.03 – 2022.12',
         tech: ['Spring Boot', 'jQuery', 'Vue.js'],
         tasks: [
-          '종이 기반 품의서 결재 프로세스를 웹으로 전환, 품의서 작성 게시판 DB 설계부터 프론트엔드까지 전 과정 담당',
+          '현업 부서·기획자와 협업해 종이 기반 품의서 결재 프로세스를 웹으로 전환, 품의서 작성 게시판 DB 설계부터 프론트엔드까지 전 과정 담당',
           '다단계 결재선 구성 · 첨부파일 체인 연결 · 결재 이력 타임라인 조회 등 복잡한 업무 로직을 분석해 직관적인 UI로 구조화, 기존 종이 서식의 흐름을 유지하며 디지털 전환 완성',
         ],
       },
@@ -173,5 +173,4 @@ export const awards: AwardItem[] = [
   { title: 'ICPC Asia Seoul Regional 68th',                          year: '2021' },
   { title: '2025학년도 졸업작품 경진대회 4th',                          year: '2025' },
   { title: 'PS 스터디 운영 (알고리즘 대회 준비, UCPC · SCPC 참가)',    year: '2021 – 현재' },
-  { title: '산업기능요원 복무 완료',                                     year: '2021.12 – 2023.02' },
 ];

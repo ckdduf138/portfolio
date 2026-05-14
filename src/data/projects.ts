@@ -34,7 +34,7 @@ export const projects: Project[] = [
     category: 'solo',
     highlights: [
       '총 10종 알고리즘 시각화 구현 (자료구조 3종, 정렬 4종, 그래프 3종)',
-      'visx 기반 커스텀 SVG 렌더링 최적화로 대규모 노드 애니메이션 성능 개선',
+      'visx 기반 커스텀 SVG 렌더링 병목 측정 후 최적화, 대규모 노드 애니메이션 성능 개선',
       'ICPC 본선 경험을 바탕으로 알고리즘 학습 UX 직접 설계',
     ],
   },
@@ -52,9 +52,9 @@ export const projects: Project[] = [
     highlights: [
       '팀(5명) 협업 · 프론트엔드 전반 담당',
       'Zustand로 전역 상태 설계, Redux 대비 보일러플레이트 없이 경량 상태 관리',
-      'Storybook으로 공통 컴포넌트 문서화 및 팀 내 재사용 체계 구축',
+      'Storybook 기반 공통 컴포넌트 디자인 시스템 구축, 팀 내 재사용 체계화',
       '게시글 및 댓글 CRUD, 검색·필터링 기능 구현',
-      'Next.js 15 App Router 기반 SSR 개발',
+      'Next.js 15 App Router 기반 SSR/CSR 혼용 데이터 페칭 전략 설계',
     ],
   },
   {
@@ -73,6 +73,7 @@ export const projects: Project[] = [
       'PWA 적용으로 모바일 홈화면 설치 및 오프라인 캐싱 구현',
       'IndexedDB + Dexie.js로 서버 없이 로컬 데이터 영구 저장',
       'Kakao Map API 연동으로 위치 기반 음식점 기록 기능 구현',
+      'TailwindCSS 기반 반응형 UI 설계 (모바일·태블릿·데스크탑 대응)',
     ],
   },
   {
@@ -112,23 +113,6 @@ export const projects: Project[] = [
       '버전 관리 및 업데이트 히스토리 시스템',
       'SEO 최적화 및 메타데이터 개선',
       '직관적인 리포트 작성 UX 설계',
-    ],
-  },
-  {
-    id: 2,
-    title: 'SwiftMind',
-    description: '긍정·부정 문장 변환 서비스',
-    longDescription:
-      '부정적인 문장을 긍정적으로 변환해주는 AI 기반 웹 서비스입니다. 사용자가 텍스트를 입력하면 자연어 처리를 통해 긍정적인 표현으로 재구성해 제공합니다.',
-    techStack: ['TypeScript', 'React'],
-    githubUrl: 'https://github.com/ckdduf138/swiftmind',
-    demoUrl: 'https://swiftmind.vercel.app',
-    period: '2024.04 - 2024.04',
-    featured: false,
-    category: 'solo',
-    highlights: [
-      'AI 기반 문장 감성 변환 기능',
-      '직관적인 입력/출력 인터페이스',
     ],
   },
 ];

@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Layers, Puzzle, Boxes, Wrench } from 'lucide-react';
+import { Download, Layers, Puzzle, Sparkles, Wrench } from 'lucide-react';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import { useMousePosition } from '@/hooks/useMousePosition';
 import { coreStrengths } from '@/data/resumeData';
 
 const iconMap: Record<string, React.ReactNode> = {
-  Layers: <Layers  size={24} />,
-  Puzzle: <Puzzle  size={24} />,
-  Boxes:  <Boxes   size={24} />,
-  Wrench: <Wrench  size={24} />,
+  Layers:   <Layers   size={24} />,
+  Puzzle:   <Puzzle   size={24} />,
+  Sparkles: <Sparkles size={24} />,
+  Wrench:   <Wrench   size={24} />,
 };
 
 const roles = [

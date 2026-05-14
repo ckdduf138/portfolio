@@ -74,8 +74,8 @@ const SkillsSection = () => {
             <div>
               <h3 className="font-bold mb-1">현재 학습 중</h3>
               <p className="text-white/80 text-sm leading-relaxed">
-                사용자 입장에서 미리 생각하는 UX 도서 및 HCI 관련 자료를 통해, 어떻게하면 사용자가 더 자연스럽게 서비스를 사용할 수 있을지를 연구하고 있습니다.
-                주어진 요구사항을 구현하는 데 그치지 않고, “왜 이 인터랙션이 사용자에게 편할까”를 먼저 묻는 개발자가 되고자 합니다.
+                프론트엔드 테스트 전략(Vitest · React Testing Library · Playwright)을 학습하며 Deerlink 실서비스에 단계적으로 적용 중입니다.
+                병행하여 브라우저 렌더링 파이프라인과 번들 최적화를 깊이 있게 공부해, "느낌이 빠른 UI"가 아닌 "측정 가능한 성능 개선"으로 풀어내는 개발자가 되고자 합니다.
               </p>
             </div>
           </div>

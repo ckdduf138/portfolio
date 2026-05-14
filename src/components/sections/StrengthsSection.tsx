@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { Layers, Puzzle, Boxes, Wrench } from 'lucide-react';
+import { Layers, Puzzle, Sparkles, Wrench } from 'lucide-react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { coreStrengths } from '@/data/resumeData';
 
 const iconMap: Record<string, React.ReactNode> = {
-  Layers:  <Layers  size={22} />,
-  Puzzle:  <Puzzle  size={22} />,
-  Boxes:   <Boxes   size={22} />,
-  Wrench:  <Wrench  size={22} />,
+  Layers:   <Layers   size={22} />,
+  Puzzle:   <Puzzle   size={22} />,
+  Sparkles: <Sparkles size={22} />,
+  Wrench:   <Wrench   size={22} />,
 };
 
 const StrengthsSection = () => {
